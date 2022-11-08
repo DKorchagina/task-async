@@ -14,30 +14,11 @@ export function mock(ms: number): Promise<number> {
  */
 export function getData(): Promise<number[]> {
     const result: number[] = [];
-    /*const prom1:Promise<number> = new Promise(resolve=>mock(300));
-    const prom2:Promise<number>  = new Promise(resolve=>mock(200));
-    const prom3:Promise<number>  = new Promise(resolve=>mock(100));
-    return Promise.all([prom1, prom2, prom3]).then(values=>{
-        const [data1, data2, data3] = values;
-        result.push(data1); result.push(data2); result.push(data3); 
-        return result;});*/
     return Promise.all([mock(100), mock(200), mock(300)]).then(values=>{
         const [data1, data2, data3] = values;
         result.push(data1); result.push(data2); result.push(data3); 
         return result;});
-   /* return mock(100)
-        .then((data1) => {
-            result.push(data1);
-            return mock(200);
-        })
-        .then((data2) => {
-            result.push(data2);
-            return mock(300);
-        })
-        .then((data3) => {
-            result.push(data3);
-            return result;
-        });*/
+  
 }
 
 /*
